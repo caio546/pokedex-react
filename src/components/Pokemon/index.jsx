@@ -1,10 +1,18 @@
 /* eslint-disable react/prop-types */
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { FiStar } from 'react-icons/fi';
+import { FiStar, FiTrash } from 'react-icons/fi';
 
-function Pokemon({ image, name, id, kind }) {
-  const handleFavorite = useCallback(() => {}, []);
+import api from '../../services/api';
+
+function Pokemon({ image, name, id, kind, starred, username }) {
+  const handleFavorite = useCallback(async () => {
+    await api.post(`/users/${username}/starred/${name}`);
+  }, [name, username]);
+
+  const handleRemoveFavorite = useCallback(async () => {
+    await api.delete(`/users/${username}/starred/${name}`);
+  }, [name, username]);
 
   return (
     <>
@@ -22,13 +30,23 @@ function Pokemon({ image, name, id, kind }) {
           </div>
         </div>
       </Link>
-      <button
-        type="button"
-        className="pokemon-favorite"
-        onClick={handleFavorite}
-      >
-        <FiStar />
-      </button>
+      {starred ? (
+        <button
+          type="button"
+          className="pokemon-favorite"
+          onClick={handleRemoveFavorite}
+        >
+          <FiTrash />
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="pokemon-favorite"
+          onClick={handleFavorite}
+        >
+          <FiStar />
+        </button>
+      )}
     </>
   );
 }

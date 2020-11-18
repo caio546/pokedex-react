@@ -91,7 +91,7 @@ function Main() {
       <div className="pokemons-container">
         {pokemons &&
           pokemons.data.map(({image_url, name, id, kind}) => (
-            <Pokemon key={id} image={image_url} name={name} id={id} kind={kind} />
+            <Pokemon key={id} image={image_url} name={name} id={id} kind={kind} starred={false} username={username} />
         ))}
       </div>
 

@@ -68,6 +68,8 @@ function Favourites() {
               name={name}
               id={id}
               kind={kind}
+              starred
+              username={username}
             />
           ))}
       </div>
