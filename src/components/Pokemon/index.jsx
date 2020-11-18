@@ -16,7 +16,14 @@ function Pokemon({ image, name, id, kind, starred, username }) {
 
   return (
     <>
-      <Link to="/infopokemon" className="pokemon" key={id}>
+      <Link
+        to={{
+          pathname: '/infopokemon',
+          state: { name },
+        }}
+        className="pokemon"
+        key={id}
+      >
         <img src={image} alt={name} className="pokemon-image" />
         <div className="pokemon-info">
           <span className="pokemon-name">{`#${id} ${name}`}</span>
