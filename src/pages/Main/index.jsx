@@ -76,7 +76,11 @@ function Main() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/favourites">
+              <Link to={{
+                pathname: '/favourites',
+                state: {username: userInfo && userInfo.user ? userInfo.user.username : username}
+              }}
+              >
                 Favoritos
               </Link>
             </li>
