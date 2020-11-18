@@ -1,9 +1,79 @@
-import React from 'react';
+/* eslint-disable prettier/prettier */
+/* eslint-disable react/jsx-one-expression-per-line */
+import React, { useState, useEffect, useCallback } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+
+import api from '../../services/api';
+
+import Header from '../../components/Header';
+import Pokemon from '../../components/Pokemon';
+
+import './styles.css';
 
 function Main() {
+  const [page] = useState(1);
+  const [pokemons, setPokemons] = useState();
+  const [username, setUsername] = useState('');
+  const [userInfo, setUserInfo] = useState();
+
+  const location = useLocation();
+
+  const getPokemons = useCallback(async () => {
+    const response = await api.get('/pokemons', {
+      params: {
+        page,
+      },
+    });
+
+    setPokemons(response.data);
+  }, [page]);
+
+  const getUserInfo = useCallback(async () => {
+    const response = await api.get(`/users/${username}`);
+
+    setUserInfo(response.data);
+  }, [username]);
+
+  useEffect(() => {
+    setUsername(location.state ? location.state.username : '');
+
+    getPokemons();
+  }, [location, getPokemons]);
+
+  useEffect(() => {
+    getUserInfo();
+  }, [getUserInfo]);
+
   return (
-    <div>
-      <h1>Oi</h1>
+    <div id="container">
+      <Header />
+
+      <section className="profile-container">
+        <span className="profile-text">{userInfo && userInfo.user && `@${userInfo.user.username}`}</span>
+        <img src="https://images.unsplash.com/photo-1585251309844-3eec340559ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="Foto do perfil" className="profile-image" />
+
+        <nav>
+          <ul className="menu">
+            <li className="nav-item">
+              <Link to="/main">
+                Pokédex
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/favourites">
+                Favoritos
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <div className="pokemons-container">
+        {pokemons &&
+          pokemons.data.map(({image_url, name, id, kind}) => (
+            <Pokemon key={id} image={image_url} name={name} id={id} kind={kind} />
+        ))}
+      </div>
     </div>
   );
 }
