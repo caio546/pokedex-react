@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -11,7 +11,7 @@ import Pokemon from '../../components/Pokemon';
 import './styles.css';
 
 function Main() {
-  const [page] = useState(1);
+  const [page, setPage] = useState(1);
   const [pokemons, setPokemons] = useState();
   const [username, setUsername] = useState('');
   const [userInfo, setUserInfo] = useState();
@@ -33,6 +33,22 @@ function Main() {
 
     setUserInfo(response.data);
   }, [username]);
+
+  const handleNextPage = useCallback(() => {
+    setPage(prevState => prevState + 1);
+  }, []);
+
+  const handlePreviousPage = useCallback(() => {
+    setPage(prevState => prevState - 1);
+  }, []);
+
+  const previousPage = useMemo(() => {
+    return page !== 1 ? page - 1 : null;
+  }, [page]);
+
+  const nextPage = useMemo(() => {
+    return page !== 33 ? page + 1 : null;
+  }, [page]);
 
   useEffect(() => {
     setUsername(location.state ? location.state.username : '');
@@ -74,6 +90,30 @@ function Main() {
             <Pokemon key={id} image={image_url} name={name} id={id} kind={kind} />
         ))}
       </div>
+
+      <nav>
+        <ul className="pagination-menu">
+          {previousPage && (
+            <li className="pagination-menu-item">
+              <button type="button" onClick={handlePreviousPage}>
+                {previousPage}
+              </button>
+            </li>
+          )}
+          <li>
+            <span>
+              {page}
+            </span>
+          </li>
+          {nextPage && (
+            <li className="pagination-menu-item">
+              <button type="button" onClick={handleNextPage}>
+                {nextPage}
+              </button>
+            </li>
+          )}
+        </ul>
+      </nav>
     </div>
   );
 }
