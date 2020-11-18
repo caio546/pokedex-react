@@ -29,29 +29,28 @@ function Login() {
   return (
     <div className="App" id="container">
       <div id="content">
-        <div>
-          <form>
-            <h1>Faça seu logon:</h1>
+        <div className="cordecima" />
+        <form>
+          <h1>Faça seu logon:</h1>
 
-            <div>
-              <input
-                className="inputuser"
-                placeholder="Usuário"
-                onChange={e => setUsername(e.target.value)}
-              />
-              <input
-                className="inputsenha"
-                placeholder="Senha"
-                onChange={e => setPassword(e.target.value)}
-                type="password"
-              />
-            </div>
+          <div>
+            <input
+              className="inputuser"
+              placeholder="Usuário"
+              onChange={e => setUsername(e.target.value)}
+            />
+            <input
+              className="inputsenha"
+              placeholder="Senha"
+              onChange={e => setPassword(e.target.value)}
+              type="password"
+            />
+          </div>
 
-            <button type="button" onClick={handleSubmit}>
-              Entrar
-            </button>
-          </form>
-        </div>
+          <button type="button" onClick={handleSubmit}>
+            Entrar
+          </button>
+        </form>
       </div>
     </div>
   );
