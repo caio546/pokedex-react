@@ -5,6 +5,8 @@ import { FiStar, FiTrash } from 'react-icons/fi';
 
 import api from '../../services/api';
 
+import './styles.css';
+
 function Pokemon({ image, name, id, kind, starred, username }) {
   const handleFavorite = useCallback(async () => {
     await api.post(`/users/${username}/starred/${name}`);

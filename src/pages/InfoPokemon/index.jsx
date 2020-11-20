@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import Header from '../../components/Header';
 import api from '../../services/api';
 
 function InfoPokemon() {
@@ -10,8 +10,8 @@ function InfoPokemon() {
   const location = useLocation();
 
   useEffect(() => {
-    setName(location.state.name);
-  }, [location.state.name]);
+    setName(location && location.state ? location.state.name : '');
+  }, [location]);
 
   useEffect(() => {
     api.get(`/pokemons/${name}`).then(response => {
@@ -21,6 +21,7 @@ function InfoPokemon() {
 
   return (
     <div id="container">
+      <Header />
       {pokemon && (
         <div>
           <img src={pokemon.image_url} alt={pokemon.name} />
