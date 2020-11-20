@@ -1,0 +1,205 @@
+body {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+a {
+  color: #3d3d3d;
+  text-decoration: none;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+a {
+  color: #3d3d3d;
+  text-decoration: none;
+}
+
+button.pokemon-favorite svg {
+  color: yellow;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+a {
+  color: #3d3d3d;
+}
+
+.pokemon {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  width: 299px;
+  margin-right: 48px;
+  margin-bottom: 32px;
+  border: 2px solid #e74848;
+  border-radius: 5px;
+}
+
+.pokemon-image {
+  width: 112px;
+  height: 80px;
+  padding-right: 30px;
+}
+
+.pokemon-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemon-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.pokemon-types {
+  display: flex;
+}
+
+.pokemon-type {
+  border-radius: 5px;
+  color: #3d3d3d;
+  padding: 1px 6px;
+  margin-right: 8px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.bug {
+  background-color: #7ed578;
+}
+
+.electric {
+  background-color: #fff34b;
+}
+
+.fairy {
+  background-color: #ff7ee5;
+}
+
+.fighting {
+  background-color: #f17373;
+}
+
+.fire {
+  background-color: #ffb433;
+}
+
+.flying {
+  background-color: #d7f1e9;
+}
+
+.ghost {
+  background-color: #e2e2e2;
+}
+
+.grass {
+  background-color: #5eff53;
+}
+
+.ground {
+  background-color: #aa8546;
+}
+
+.ice {
+  background-color: #aee3fb;
+}
+
+.normal {
+  background-color: #818181;
+}
+
+.poison {
+  background-color: #ce52f9;
+}
+
+.psychic {
+  background-color: #ffc157;
+}
+
+.rock {
+  background-color: #757575;
+}
+
+.steel {
+  background-color: #a1a1a1;
+}
+
+.water {
+  background-color: #7192ff;
+}
+
+.dragon {
+  background-color: #43372d;
+}
+
+.poison {
+  background-color: #ce52f9;
+}
+
+.psychic {
+  background-color: #ffc157;
+}
+
+.rock {
+  background-color: #757575;
+}
+
+.steel {
+  background-color: #a1a1a1;
+}
+
+.water {
+  background-color: #7192ff;
+}
+
+.dragon {
+  background-color: #43372d;
+}
+
+.pokemon-favorite {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+}
+
+.poison {
+  background-color: #ce52f9;
+}
+
+.psychic {
+  background-color: #ffc157;
+}
+
+.rock {
+  background-color: #757575;
+}
+
+.steel {
+  background-color: #a1a1a1;
+}
+
+.water {
+  background-color: #7192ff;
+}
+
+.dragon {
+  background-color: #43372d;
+}
+
+.pokemon-favorite {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,71 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display:flex;
+  flex: 1;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+  width:100%;
+  background-color:red;
+  border-bottom:1rem solid black;
+  position: relative;
+  bottom: 300px;
+}
+*{
+  margin:0;
+}
+.cordecima{
+  width:100vw;
+  height:50vh;
+  background-color:red;
+  display: none;
+}
+.inputuser{
+  text-align: center;
+}
+.inputsenha{
+  text-align:center;
+  margin: 10px
+
+}
+
+#content{
+  border-radius:50%;
+  width:25rem;
+  height: 25rem;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  border:1rem solid black;
+  background-color:white;
+  transform:translateY(21rem)
+}
+@media(max-width:768px){
+  #content{
+    transform:translateY(10rem);
+    border:none;
+    background-color:transparent;
+    }
+  .App{
+    border:none;
+  }
+}
+
+@media(max-width:1024px){
+  #content{
+    transform:translateY(20rem)}
+}
+@media(max-width:540px){
+  #content{
+    transform:translateY(10rem)}
+}
+@media(max-width:375px){
+  #content{
+    transform:translateY(12rem)}
+}
+@media(max-width:320px){
+  #content{
+    font-size: 12px;
+    transform:translateY(10rem)}
+}

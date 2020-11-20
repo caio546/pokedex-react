@@ -1,0 +1,52 @@
+#container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+#container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+}
+.nav-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+  border: solid red;
+  border-radius: 5px;
+}
+.pokemons-container {
+  display: flex;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+.pagination-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.pagination-menu-item button,
+.pagination-menu-item span {
+  font-size: 18px;
+  color: #e8003e;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  bottom: 2px;
+}
+
+#selected-page {
+  background-color: #dd0000;
+  border-radius: 15px;
+  padding: 2px 8px;
+  color: #fff;
+}
+
